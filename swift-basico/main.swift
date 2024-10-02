@@ -10,7 +10,7 @@ func tieneCaracteresEspeciales(texto: String) -> Bool {
     }
     return false
 }
-
+/*
 print("¿Cómo te llamas?")
 var nombre = readLine()!
 
@@ -35,3 +35,6 @@ repeat {
 } while nombreIncorrecto
 
 print("Hola", nombre)
+*/
+
+opcionales()
