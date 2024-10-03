@@ -79,3 +79,7 @@ print("Los nombres ordenados", nombres.sorted())
 print("Los nombres ordenados por tamaño", nombres.sorted { $0.count > $1.count })
 
 print("Los nombres cortos", nombres.filter { $0.count <= 4 })
+
+let amigos = nombres.map { Amigo(nombre: $0) }
+
+amigos.map { print($0.nombre) }
