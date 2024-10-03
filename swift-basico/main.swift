@@ -53,6 +53,29 @@ func cambiarNumeros(nombre: String) -> String {
     return resultado
 }
 
-let nombre = cambiarNumeros(nombre: pedirNombre())
-print("Hola", nombre)
+var terminar = false
+var nombres: [String] = ["pepe", "ana", "roberto", "luis"]
+repeat {
+    print("¿Quieres meter un nombre?")
+    terminar = readLine()!.first?.lowercased() != "s"
+    if !terminar {
+        nombres.append(cambiarNumeros(nombre: pedirNombre()))
+    }
+} while !terminar
 
+let numeroLetras: (String) -> (Int) = { texto in
+    texto.count }
+
+print(nombres)
+let numeroLetrasNombres = nombres.map(numeroLetras)
+print(numeroLetrasNombres)
+
+let espacio = numeroLetrasNombres.reduce(0) { (total, letras) -> Int in total + letras }
+
+print("Los nombres ocupan", espacio, "bytes")
+
+print("Los nombres ordenados", nombres.sorted())
+
+print("Los nombres ordenados por tamaño", nombres.sorted { $0.count > $1.count })
+
+print("Los nombres cortos", nombres.filter { $0.count <= 4 })
